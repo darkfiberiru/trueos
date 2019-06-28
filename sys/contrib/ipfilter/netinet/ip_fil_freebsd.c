@@ -481,7 +481,7 @@ ipf_send_ip(fin, m)
 	default :
 		return EINVAL;
 	}
-#ifdef IPSEC
+#ifdef IPSEC_SUPPORT
 	m->m_pkthdr.rcvif = NULL;
 #endif
 
@@ -1169,7 +1169,7 @@ ipf_checkv6sum(fin)
 size_t
 mbufchainlen(m0)
 	struct mbuf *m0;
-	{
+{
 	size_t len;
 
 	if ((m0->m_flags & M_PKTHDR) != 0) {
